@@ -1,0 +1,129 @@
+body {
+  background: url('https://congchungnguyenhue.com/Uploaded/Images/Original/2023/11/29/img-0130-398_2911104836.jpg') center center fixed; 
+  background-size: cover;
+  color: #1a1919;
+ 
+  margin-top: 5rem;
+}
+.button{
+  background-color: black
+  }
+h1{
+
+  text-align: center;
+  font-size: 40px;
+  margin-bottom: 25px;
+  color: #2196f3;
+  letter-spacing: 1px;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-family: 'Roboto', sans-serif;
+  text-shadow: -1px 0 #ffffff, 0 1px #fff, 1px 0 #ffffff, 0 -1px #ffffff;
+  -webkit-animation-delay: 1.1s;
+  animation-delay: 1.1s;
+
+}
+
+.title {
+margin-top: 200px;
+width: 100%;
+
+}
+
+h2, h3, h4, h5, h6 {
+  color: #ffffff;
+}
+.text-muted {
+  color: #000000!important;
+}
+
+.row {
+  justify-content: center;
+  margin-top: 20px;
+  
+}
+.col-md-8{
+margin-top: 20px;
+}
+.bg-steel {
+  background-color: #121313;
+}
+
+.site-header .navbar-nav .nav-link {
+  color: #cbd5db;
+  font-size: 20px;
+}
+
+.site-header .navbar-nav .nav-link:hover {
+  color: #ffffff;
+}
+
+.site-header .navbar-nav .nav-link.active {
+  font-weight: 500;
+}
+
+.content-section {
+  background: #ffffff;
+  padding: 10px 20px;
+  border: 1px solid #dddddd;
+  border-radius: 3px;
+  margin-bottom: 20px;
+}
+
+.article-title {
+  color: #444444;
+}
+
+a.article-title:hover {
+  color: #428bca;
+  text-decoration: none;
+}
+
+.article-content {
+  white-space: pre-line;
+}
+
+.article-img {
+  height: 65px;
+  width: 65px;
+  margin-right: 16px;
+}
+
+.article-metadata {
+  padding-bottom: 1px;
+  margin-bottom: 4px;
+  border-bottom: 1px solid #e3e3e3
+}
+
+.article-metadata a:hover {
+  color: #333;
+  text-decoration: none;
+}
+
+.article-svg {
+  width: 25px;
+  height: 25px;
+  vertical-align: middle;
+}
+
+.account-img {
+  height: 125px;
+  width: 125px;
+  margin-right: 20px;
+  margin-bottom: 16px;
+}
+
+.account-heading {
+  font-size: 2.5rem;
+}
+
+.navbar-brand img {
+  max-height: 70px; /* Điều chỉnh chiều cao tối đa của logo */
+  width: auto; /* Giữ tỷ lệ khung hình khi thay đổi kích thước */
+  margin-right: 5px; /* Khoảng cách giữa logo và các phần tử khác */
+}
+
+.navbar-brand:hover {
+  color: #fff; /* Màu chữ khi hover */
+  text-decoration: none; /* Xóa đường gạch chân mặc định */
+}

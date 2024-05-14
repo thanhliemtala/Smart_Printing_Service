@@ -1,0 +1,201 @@
+
+  h1{
+
+    text-align: center;
+    font-size: 40px;
+    margin-bottom: 25px;
+    color: #2196f3;
+    letter-spacing: 1px;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-family: 'Roboto', sans-serif;
+    text-shadow: -1px 0 #ffffff, 0 1px #fff, 1px 0 #ffffff, 0 -1px #ffffff;
+    -webkit-animation-delay: 1.1s;
+    animation-delay: 1.1s;
+  }
+
+.title {
+  margin-top: 50px;
+  margin-bottom: 30px;
+  text-transform: uppercase;
+ 
+ 
+}
+
+  h2, h3, h4, h5, h6 {
+    color: #ffffff;
+  }
+
+  .row {
+    justify-content: center;
+  }
+
+  .bg-steel {
+    background-color: #121313;
+  }
+
+  .site-header .navbar-nav .nav-link {
+    color: #cbd5db;
+    font-size: 20px;
+  }
+
+  .site-header .navbar-nav .nav-link:hover {
+    color: #ffffff;
+  }
+
+  .site-header .navbar-nav .nav-link.active {
+    font-weight: 500;
+  }
+
+  .content-section {
+  
+    padding: 10px 20px;
+
+    margin-bottom: 20px;
+  }
+
+  .article-title {
+    color: #444444;
+  }
+
+  a.article-title:hover {
+    color: #428bca;
+    text-decoration: none;
+  }
+
+  .article-content {
+    white-space: pre-line;
+  }
+
+  .article-img {
+    height: 65px;
+    width: 65px;
+    margin-right: 16px;
+  }
+
+  .article-metadata {
+    padding-bottom: 1px;
+    margin-bottom: 4px;
+    border-bottom: 1px solid #e3e3e3
+  }
+
+  .article-metadata a:hover {
+    color: #333;
+    text-decoration: none;
+  }
+
+  .article-svg {
+    width: 25px;
+    height: 25px;
+    vertical-align: middle;
+  }
+
+  .account-img {
+    height: 125px;
+    width: 125px;
+    margin-right: 20px;
+    margin-bottom: 16px;
+  }
+
+  .account-heading {
+    font-size: 2.5rem;
+  }
+
+  .navbar-brand img {
+    max-height: 70px; /* Điều chỉnh chiều cao tối đa của logo */
+    width: auto; /* Giữ tỷ lệ khung hình khi thay đổi kích thước */
+    margin-right: 5px; /* Khoảng cách giữa logo và các phần tử khác */
+}
+
+.navbar-brand:hover {
+    color: #fff; /* Màu chữ khi hover */
+    text-decoration: none; /* Xóa đường gạch chân mặc định */
+}
+body {
+  background:  #7d8686;
+ 
+  background-size: cover;
+  color: #1a1919;
+ 
+  margin-top: 5rem;
+}
+
+.table_management {
+  width: 100%;
+  border-collapse: collapse;
+ 
+}
+
+.table_management th, .table_management td {
+  border: 1px solid #ffffff;
+  padding: 12px; /* Adjust the padding for cell content */
+  text-align: center; /* Center align text */
+  font-family: 'Roboto', sans-serif;
+
+}
+
+.table_management th {
+  background-color: #dfdcdc;
+  font-size: 25px; /* Set font size for table header */
+}
+.toggle-switch {
+  position: relative;
+  display: inline-block;
+  width: 40px;
+  height: 20px;
+}
+
+.toggle-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.toggle-slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  border-radius: 20px;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.toggle-slider:before {
+  position: absolute;
+  content: "";
+  height: 16px;
+  width: 16px;
+  left: 2px;
+  bottom: 2px;
+  background-color: white;
+  border-radius: 50%;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .toggle-slider {
+  background-color: #05f52d;
+}
+
+input:checked + .toggle-slider:before {
+  -webkit-transform: translateX(20px);
+  -ms-transform: translateX(20px);
+  transform: translateX(20px);
+}
+
+
+
+.notes-input {
+  background-color: #7d8686;
+  width: 100%;
+  padding: 5px;
+  box-sizing: border-box;
+  margin-top: 5px;
+  border: none;  /* Tắt viền */
+  outline: none; /* Tắt đường viền focus */
+  
+}

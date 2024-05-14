@@ -1,0 +1,87 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='print.css') }}">
+
+    {% if title %}
+        <title>HCMUT_SPSS - {{ title }}</title>
+    {% else %}
+        <title>HCMUT_SPSS</title>
+    {% endif %}
+</head>
+<body>
+    <header class="site-header">
+      <nav class="navbar navbar-expand-md navbar-dark bg-steel fixed-top">
+        <div class="container">
+          
+          <a class="navbar-brand mr-4" href="/home">
+         <img src="https://hcmut.edu.vn/img/nhanDienThuongHieu/01_logobachkhoatoi.png" alt="logo">
+        </a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarToggle">
+            <div class="navbar-nav mr-auto">
+  
+                <a class="nav-item nav-link" href="{{ url_for('home') }}">Home</a>
+                <a class="nav-item nav-link" href="{{ url_for('printer_management') }}">Manage Printer</a>
+                <a class="nav-item nav-link" href="{{ url_for('configuration') }}">Manage Configuration</a>
+                <a class="nav-item nav-link" href="#">Reports</a>
+                
+            </div>
+            <!-- Navbar Right Side -->
+            <div class="navbar-nav">
+                <a class="nav-item nav-link" href="#">Info</a>
+                <a class="nav-item nav-link" href="{{ url_for('logout') }}">Log out</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main role="main" class="container">
+     
+        <div class="content-section">
+          <h1 class="title">Add Printer</h1>
+      <form method="POST" action="{{ url_for('save_printer') }}">
+          <label for="brand_name">Brand Name:</label>
+          <input type="text" id="brand_name" name="brand_name" required><br><br>
+
+          <label for="print_model">Print Model:</label>
+          <input type="text" id="print_model" name="print_model" required><br><br>
+
+          <label for="is_on">On/Off:</label>
+          <input type="checkbox" id="is_on" name="is_on"><br><br>
+
+          <label for="location">Location:</label>
+          <input type="text" id="location" name="location" required><br><br>
+
+          <label for="notes">Notes:</label>
+          <input type="text" id="notes" name="notes" ><br><br>
+
+          <input type="submit" value="Add Printer">
+      </form>
+        </div>
+     
+
+    </main>
+
+  
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+    
+</body>
+</html>

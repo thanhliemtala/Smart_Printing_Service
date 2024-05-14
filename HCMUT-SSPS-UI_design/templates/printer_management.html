@@ -1,0 +1,119 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='print.css') }}">
+
+    {% if title %}
+        <title>HCMUT_SPSS - {{ title }}</title>
+    {% else %}
+        <title>HCMUT_SPSS</title>
+    {% endif %}
+</head>
+<script>
+    function updateStatus(brandName) {
+        // Gửi yêu cầu cập nhật trạng thái sử dụng Fetch API
+        fetch(`/update_status/${brandName}`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                is_on: document.querySelector(`input[type="checkbox"][data-printer-id="${brandName}"]`).checked,
+            }),
+        });
+    }
+
+    function updateNotes(brandName, newNotes) {
+        // Gửi yêu cầu cập nhật ghi chú sử dụng Fetch API
+        fetch(`/update_notes/${brandName}`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                notes: newNotes,
+            }),
+        });
+    }
+</script>
+<body>
+    <header class="site-header">
+      <nav class="navbar navbar-expand-md navbar-dark bg-steel fixed-top">
+        <div class="container">
+          
+          <a class="navbar-brand mr-4" href="/home">
+         <img src="https://hcmut.edu.vn/img/nhanDienThuongHieu/01_logobachkhoatoi.png" alt="logo">
+        </a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarToggle">
+            <div class="navbar-nav mr-auto">
+  
+                <a class="nav-item nav-link" href="{{ url_for('home') }}">Home</a>
+                <a class="nav-item nav-link" href="{{ url_for('printer_management') }}">Manage Printer</a>
+                <a class="nav-item nav-link" href="{{ url_for('configuration') }}">Manage Configuration</a>
+                <a class="nav-item nav-link" href="#">Reports</a>
+                
+            </div>
+            <!-- Navbar Right Side -->
+            <div class="navbar-nav">
+                <a class="nav-item nav-link" href="#">Info</a>
+                <a class="nav-item nav-link" href="{{ url_for('logout') }}">Log out</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main role="main" class="container">
+      <div class="content-section">
+          <h1 class="title">Printer List</h1>
+          <table class='table_management'>
+            <tr>
+                <th>ID</th>
+                <th>Printer</th>
+                <th>Location</th>
+                <th>Status</th>
+                <th>Notes</th>
+            </tr>
+            {% for printer in printers %}
+                <tr>
+                    <td>{{ loop.index }}</td>
+                    <td>{{ printer.brand_name }}</td>
+                    <td>{{ printer.location }}</td>
+                    <td>ON
+                        <label class="toggle-switch">
+                            <input type="checkbox" {% if printer.is_on %}checked{% endif %} data-printer-id="{{ printer.brand_name }}" onchange="updateStatus('{{ printer.brand_name }}')">
+                            <span class="toggle-slider"></span>
+                        </label>OFF
+                    </td>
+                    <td>
+                        <input type="text" name="notes" class="notes-input" value="{{ printer.notes }}" onchange="updateNotes('{{ printer.brand_name }}', this.value)">
+                    </td>
+                </tr>
+            {% endfor %}
+        </table>
+          
+      </div>
+  </main>
+
+  
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+    
+</body>
+</html>

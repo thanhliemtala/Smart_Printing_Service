@@ -1,0 +1,14 @@
+{% extends "layout.html"%}
+{%block leftbar%}
+    <a class="nav-item nav-link" href="{{ url_for('home') }}">Home</a>
+    <a class="nav-item nav-link" href="{{ url_for('print_document') }}">Printing Document</a>
+    <a class="nav-item nav-link" href="#">Payment</a>
+    <a class="nav-item nav-link" href="#">View History</a>
+{%endblock%}
+{%block rightbar%}
+    <a class="nav-item nav-link" href="#">Info</a>
+    <a class="nav-item nav-link" href="{{ url_for('logout') }}">Log out</a>
+{%endblock%}
+{% block content %}
+    <h1>Hi,User !!! Welcome to HCMUT SPSS!</h1>
+{% endblock %}

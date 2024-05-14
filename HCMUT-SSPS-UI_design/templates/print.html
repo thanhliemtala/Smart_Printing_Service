@@ -1,0 +1,71 @@
+{% extends "layout.html" %}
+
+{% with messages = get_flashed_messages() %}
+    {% if messages %}
+        <ul class="flashes">
+            {% for message in messages %}
+                <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+{% endwith %}
+
+{% block content %}
+    <div class="content-section">
+        {% if current_stage == 'print_document' %}
+            <!-- Form for uploading a document -->
+            <form class="form-group" method="post" enctype="multipart/form-data" action="{{ url_for('print_document') }}">
+                <label for="file">Select File to Upload:</label>
+                <input type="file" name="myFile" accept=".pdf,.txt,.docx,.xlsx,.pptx">
+                <button type="submit" style="background-color: #4CAF50; color: white;">Upload Document</button>
+            </form>
+        {% elif current_stage == 'upload_success' %}
+            <!-- Display information about the uploaded document -->
+            <p>Uploaded successfully:</p>
+            <ul>
+                <!-- Display document details -->
+                <li>Paper Size: A4</li>
+                <li>Number of Pages: 10</li>
+                <li>One Side/Two Sides: One Side</li>
+                <li>Number of Copies: 1</li>
+            </ul>
+            {% if warning %}
+                <!-- Display warning and option to buy more pages -->
+                <form action="{{ url_for('buy_more_pages_action') }}" method="POST">
+                    <button type="submit" style="background-color: #f0ad4e; color: white;">Buy More Pages</button>
+                </form>
+            {% else %}
+                <!-- Continue to the next stage -->
+                <a href="{{ url_for('move_to_next_stage') }}" class="btn btn-primary" style="background-color: #337ab7; color: white;">Next</a>
+            {% endif %}
+        {% elif current_stage == 'printer_selection' %}
+            <!-- Form for printer selection -->
+            <p>Select a printer:</p>
+            <form action="{{ url_for('printer_selection') }}" method="POST">
+                <!-- Printer selection dropdown -->
+                <button type="submit" style="background-color: #337ab7; color: white;">Print</button>
+            </form>
+        {% elif current_stage == 'printing' %}
+            <!-- Display printing progress -->
+            <h2>Printing</h2>
+            <p>Your document is being printed. Please wait...</p>
+        {% elif current_stage == 'file_not_allowed' %}
+            <!-- Display file not allowed message -->
+            <h2 style="color: black;">File Not Allowed</h2>
+            <p style="color: black;">The selected file type is not allowed. Please choose a file with one of the following extensions: 
+                <strong>.docx</strong>, <strong>.txt</strong>, <strong>.pdf</strong>.
+            </p>
+            <!-- Option to go back or handle warning -->
+            <a href="{{ url_for('move_to_previous_stage') }}" class="btn btn-primary" style="background-color: #337ab7; color: white;">Go Back</a>
+            {% if warning %}
+                <!-- Display warning and option to buy more pages -->
+                <form action="{{ url_for('buy_more_pages_action') }}" method="POST">
+                    <button type="submit" style="background-color: #f0ad4e; color: white;">Buy More Pages</button>
+                </form>
+            {% else %}
+                <!-- Continue to the next stage -->
+                <a href="{{ url_for('move_to_next_stage') }}" class="btn btn-primary" style="background-color: #337ab7; color: white;">Next</a>
+            {% endif %}
+        {% endif %}
+    </div>
+{% endblock %}
